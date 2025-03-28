@@ -1,0 +1,2 @@
+/home/splimter/projects/open-source/flutter_skeleton/android/app/.cxx/Debug/u6oq735x/arm64-v8a/CMakeFiles/edit_cache.dir
+/home/splimter/projects/open-source/flutter_skeleton/android/app/.cxx/Debug/u6oq735x/arm64-v8a/CMakeFiles/rebuild_cache.dir

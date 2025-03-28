@@ -1,0 +1,1 @@
+/home/splimter/projects/open-source/flutter_skeleton/build/app/intermediates/cxx/Debug/u6oq735x/obj/x86

@@ -32,7 +32,8 @@ class ServicesController extends GetxController {
     var (response, error) = await DmartAPIS.query(query);
     if (response == null) {
       Snackbars.error("Unable to fetch record", error?.message ?? "");
-    } else {
+    }
+    else {
       if (response.status == Status.success) {
         records.value = response.records;
       } else {

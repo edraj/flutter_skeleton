@@ -50,6 +50,7 @@ class CreateUserAttributes {
         'profile_pic_url': profilePicUrl,
         'msisdn': msisdn,
         'password': password,
+    'is_active': true,
       };
 }
 
