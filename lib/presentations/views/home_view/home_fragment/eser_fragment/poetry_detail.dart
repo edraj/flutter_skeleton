@@ -1,5 +1,5 @@
+import 'package:dmart/dmart.dart';
 import 'package:dmart_android_flutter/domain/controllers/eser/eser_arabic_detail_controller.dart';
-import 'package:dmart_android_flutter/domain/repositories/dmart_apis.dart';
 import 'package:dmart_android_flutter/presentations/widgets/language_change.dart';
 import 'package:dmart_android_flutter/presentations/widgets/shimmer/list_loading_shimmer.dart';
 import 'package:dmart_android_flutter/presentations/widgets/simple_audio_player.dart';
@@ -115,7 +115,7 @@ class _PoetryDetailState extends State<PoetryDetail> {
                                   }
                                   return SimpleAudioPlayer(
                                     title: attachment['shortname'],
-                                    url: DmartAPIS.getAttachmentUrl(
+                                    url: Dmart.getAttachmentUrl(
                                       attachment['resource_type'],
                                       'eser',
                                       'arabic',

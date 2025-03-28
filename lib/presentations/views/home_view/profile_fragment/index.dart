@@ -1,7 +1,7 @@
 import 'dart:io';
 
+import 'package:dmart/dmart.dart';
 import 'package:dmart_android_flutter/domain/controllers/user_controller.dart';
-import 'package:dmart_android_flutter/domain/models/base/displayname.dart';
 import 'package:dmart_android_flutter/utils/helpers/app_localizations.dart';
 import 'package:dmart_android_flutter/utils/helpers/snackbars.dart';
 import 'package:flutter/material.dart';

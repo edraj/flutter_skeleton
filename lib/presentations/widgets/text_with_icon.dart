@@ -6,11 +6,11 @@ class TextWithIcon extends StatelessWidget {
   final TextDirection textDirection;
 
   const TextWithIcon({
-    Key? key,
+    super.key,
     required this.text,
     required this.icon,
     this.textDirection = TextDirection.ltr,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,9 +1,7 @@
+import 'package:dmart/dmart.dart';
 import 'package:dmart_android_flutter/domain/controllers/app/data.dart';
-import 'package:dmart_android_flutter/domain/models/base/retrieve_entry_request.dart';
-import 'package:dmart_android_flutter/domain/repositories/dmart_apis.dart';
 import 'package:dmart_android_flutter/presentations/widgets/basic_dialog.dart';
 import 'package:dmart_android_flutter/utils/constants/themes.dart';
-import 'package:dmart_android_flutter/utils/enums/base/resource_type.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -19,7 +17,7 @@ class AppController extends GetxController {
       shortname: 'greeting',
       retrieveJsonPayload: true,
     );
-    var (response, _) = await DmartAPIS.retrieveEntry(query, scope: "public");
+    var (response, _) = await Dmart.retrieveEntry(query, scope: "public");
     if (response == null) {
       return;
     }

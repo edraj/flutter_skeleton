@@ -1,7 +1,6 @@
 import 'package:dmart_android_flutter/domain/controllers/mobile_demo/data.dart';
 import 'package:dmart_android_flutter/domain/controllers/mobile_demo/services_controller.dart';
 import 'package:dmart_android_flutter/domain/controllers/user_controller.dart';
-import 'package:dmart_android_flutter/presentations/views/home_view/home_fragment/eser_dynamic_fragment/index.dart';
 import 'package:dmart_android_flutter/presentations/views/home_view/home_fragment/eser_fragment/index.dart';
 import 'package:dmart_android_flutter/presentations/views/home_view/profile_fragment/index.dart';
 import 'package:dmart_android_flutter/presentations/views/home_view/services_fragment/index.dart';
@@ -19,7 +18,7 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  ServicesController servicesController = Get.put(ServicesController.init());
+  ServicesController servicesController = Get.put(ServicesController());
   UserController userController = Get.put(UserController());
 
   Future<void> setupHome() async {
@@ -43,7 +42,6 @@ class _HomeViewState extends State<HomeView> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     const EserFragment(),
-    const EserDynamicFragment(),
     ServicesFragment(subpath: MobileDemoSubpaths.services.name),
     const ProfileFragment(),
   ];
@@ -59,7 +57,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       appBar: AppBar(
         leading: Obx(() {
-          return servicesController.subpath.value.contains('/')
+          return servicesController.currentSubpath.value.contains('/')
               ? InkWell(
                   onTap: () {},
                   child: const Icon(
@@ -94,11 +92,6 @@ class _HomeViewState extends State<HomeView> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: const Icon(Icons.dynamic_feed),
-            label: language["eser"],
-            backgroundColor: Colors.black,
-          ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.dynamic_form),
             label: language["eser"],
             backgroundColor: Colors.black,
           ),

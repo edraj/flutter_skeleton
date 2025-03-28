@@ -1,9 +1,4 @@
-import 'package:dmart_android_flutter/domain/models/base/base_response.dart';
-import 'package:dmart_android_flutter/domain/models/base/displayname.dart';
-import 'package:dmart_android_flutter/domain/models/base/error.dart';
-import 'package:dmart_android_flutter/domain/models/base/record.dart';
-import 'package:dmart_android_flutter/domain/models/base/status.dart';
-import 'package:dmart_android_flutter/utils/enums/base/user_type.dart';
+import 'package:dmart/dmart.dart';
 
 class LoginRequestModel {
   String shortname;
@@ -23,19 +18,19 @@ class LoginResponseModel extends BaseResponse {
   String? token;
   UserType? type;
   Displayname? displayname;
-  ErrorModel? error;
+  Error? error;
 
   LoginResponseModel({this.token, required super.status, super.records});
 
   LoginResponseModel.fromJson(Map<String, dynamic> json) {
     status = Status.values.byName(json['status']);
     if (status == Status.failed) {
-      error = ErrorModel.fromJson(json['error']);
+      error = Error.fromJson(json['error']);
       return;
     }
     if (json['records'] != null && json['records']!.isNotEmpty) {
       records = [];
-      Record? record = Record.fromJson(json['records'][0]);
+      Record record = Record.fromJson(json['records'][0]);
       records?.add(record);
       LoginAttributes? attribute = LoginAttributes.fromJson(record.attributes);
       token = attribute.accessToken;

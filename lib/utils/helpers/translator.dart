@@ -1,4 +1,4 @@
-import 'package:dmart_android_flutter/domain/models/base/query/response_record.dart';
+import 'package:dmart/dmart.dart';
 import 'package:get/get.dart';
 
 class Translator {

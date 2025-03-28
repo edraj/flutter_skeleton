@@ -1,6 +1,5 @@
+import 'package:dmart/dmart.dart';
 import 'package:dmart_android_flutter/domain/controllers/user_controller.dart';
-import 'package:dmart_android_flutter/domain/models/base/displayname.dart';
-import 'package:dmart_android_flutter/domain/models/create_user_model.dart';
 import 'package:dmart_android_flutter/presentations/widgets/edit_field.dart';
 import 'package:dmart_android_flutter/presentations/widgets/language_change.dart';
 import 'package:dmart_android_flutter/presentations/widgets/theme_switch.dart';

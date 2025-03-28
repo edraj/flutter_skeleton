@@ -1,4 +1,0 @@
-enum SortyType {
-  ascending,
-  descending,
-}

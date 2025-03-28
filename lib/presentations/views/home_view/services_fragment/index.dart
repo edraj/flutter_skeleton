@@ -1,6 +1,6 @@
+import 'package:dmart/dmart.dart';
 import 'package:dmart_android_flutter/domain/controllers/mobile_demo/services_controller.dart';
 import 'package:dmart_android_flutter/presentations/widgets/shimmer/list_loading_shimmer.dart';
-import 'package:dmart_android_flutter/utils/enums/base/resource_type.dart';
 import 'package:dmart_android_flutter/utils/helpers/translator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,12 +15,12 @@ class ServicesFragment extends StatefulWidget {
 }
 
 class _ServicesFragmentState extends State<ServicesFragment> {
-  late ServicesController servicesController;
+  late ServicesController servicesController = Get.put(ServicesController());
 
   @override
   void initState() {
-    servicesController = Get.put(ServicesController(widget.subpath));
     super.initState();
+    servicesController.loadItems(widget.subpath);
   }
 
   @override
@@ -46,10 +46,12 @@ class _ServicesFragmentState extends State<ServicesFragment> {
               onTap: () {
                 if (servicesController.records[index].resourceType ==
                     ResourceType.folder) {
-                  servicesController.subpath.value =
-                      "${widget.subpath}/${servicesController.records[index].shortname}";
-                  servicesController.loadItems();
+                  servicesController.loadItems(
+                      "${widget.subpath}/${servicesController.records[index]
+                          .shortname}");
                 }
+                print(
+                    'object ${servicesController.records[index].resourceType}');
               },
               child: Center(
                 child: Text(title),

@@ -12,7 +12,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  dio: ^5.7.0
+  dio: ^5.8.0+1
   get_storage: ^2.1.1
   get: ^4.6.6
   awesome_dio_interceptor: ^1.0.0
@@ -23,6 +23,7 @@ dependencies:
   shimmer: ^3.0.0
   just_audio: ^0.9.35
   just_audio_cache: ^0.1.2
+  dmart: ^1.0.10+1
 
 dev_dependencies:
   flutter_test:

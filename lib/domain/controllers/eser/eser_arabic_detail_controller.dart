@@ -1,9 +1,6 @@
+import 'package:dmart/dmart.dart';
 import 'package:dmart_android_flutter/domain/controllers/eser/data.dart';
-import 'package:dmart_android_flutter/domain/models/base/response_entry.dart';
-import 'package:dmart_android_flutter/domain/models/base/retrieve_entry_request.dart';
 import 'package:dmart_android_flutter/domain/models/easer_arabic.dart';
-import 'package:dmart_android_flutter/domain/repositories/dmart_apis.dart';
-import 'package:dmart_android_flutter/utils/enums/base/resource_type.dart';
 import 'package:dmart_android_flutter/utils/helpers/snackbars.dart';
 import 'package:get/get.dart';
 
@@ -28,7 +25,7 @@ class EserArabicDetailController extends GetxController {
           retrieveJsonPayload: true,
           retrieveAttachments: true,
           resourceType: ResourceType.content);
-      var (response, error) = await DmartAPIS.retrieveEntry(request);
+      var (response, error) = await Dmart.retrieveEntry(request);
       if (response == null) {
         Snackbars.error("Unable to fetch records!", error?.message ?? "");
         return;

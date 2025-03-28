@@ -1,10 +1,5 @@
+import 'package:dmart/dmart.dart';
 import 'package:dmart_android_flutter/domain/controllers/eser/data.dart';
-import 'package:dmart_android_flutter/domain/models/base/query/query_request.dart';
-import 'package:dmart_android_flutter/domain/models/base/query/response_record.dart';
-import 'package:dmart_android_flutter/domain/models/base/status.dart';
-import 'package:dmart_android_flutter/domain/repositories/dmart_apis.dart';
-import 'package:dmart_android_flutter/utils/enums/base/query_type.dart';
-import 'package:dmart_android_flutter/utils/enums/base/sort_type.dart';
 import 'package:dmart_android_flutter/utils/helpers/snackbars.dart';
 import 'package:get/get.dart';
 
@@ -25,7 +20,7 @@ class EserArabicController extends GetxController {
       sortBy: "created_at",
       sortType: SortyType.ascending,
     );
-    var (response, error) = await DmartAPIS.query(query);
+    var (response, error) = await Dmart.query(query);
     if (response == null) {
       Snackbars.error("Unable to fetch record", error?.message ?? "");
     } else {

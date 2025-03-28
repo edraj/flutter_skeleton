@@ -7,8 +7,7 @@ class SimpleAudioPlayer extends StatefulWidget {
   final String title;
   final String url;
 
-  const SimpleAudioPlayer({Key? key, required this.title, required this.url})
-      : super(key: key);
+  const SimpleAudioPlayer({super.key, required this.title, required this.url});
 
   @override
   SimpleAudioPlayerState createState() => SimpleAudioPlayerState();

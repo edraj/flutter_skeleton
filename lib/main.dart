@@ -1,6 +1,6 @@
+import 'package:dmart/dmart.dart';
 import 'package:dmart_android_flutter/configs/dio.dart';
 import 'package:dmart_android_flutter/domain/controllers/app/app_controller.dart';
-import 'package:dmart_android_flutter/domain/repositories/dmart_apis.dart';
 import 'package:dmart_android_flutter/presentations/views/home_view/index.dart';
 import 'package:dmart_android_flutter/presentations/views/login_view.dart';
 import 'package:dmart_android_flutter/utils/constants/themes.dart';
@@ -11,6 +11,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+
+import 'configs/dmart.dart';
 
 class MainWidget extends StatefulWidget {
   const MainWidget({super.key});
@@ -45,9 +47,9 @@ void main() async {
   await AppLocalizations.setLang();
   addInterceptors();
   String? lang = GetStorage().read("lang");
-
+  initDmart();
   PlatformDispatcher.instance.onError = (error, stack) {
-    DmartAPIS.submit('applications', 'log', 'logs', {
+    Dmart.submit('applications', 'log', 'logs', {
       "error": {
         "class": error.toString(),
         "stack": stack.toString(),

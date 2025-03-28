@@ -1,35 +1,28 @@
+import 'package:dmart/dmart.dart';
 import 'package:dmart_android_flutter/domain/controllers/mobile_demo/data.dart';
-import 'package:dmart_android_flutter/domain/models/base/query/query_request.dart';
-import 'package:dmart_android_flutter/domain/models/base/query/response_record.dart';
-import 'package:dmart_android_flutter/domain/models/base/status.dart';
-import 'package:dmart_android_flutter/domain/repositories/dmart_apis.dart';
-import 'package:dmart_android_flutter/utils/enums/base/query_type.dart';
 import 'package:dmart_android_flutter/utils/helpers/snackbars.dart';
 import 'package:get/get.dart';
 
 class ServicesController extends GetxController {
-  Rx<String> subpath = "".obs;
+  var currentSubpath = "/".obs;
   RxList<ResponseRecord> records = <ResponseRecord>[].obs;
   Rx<bool> isLoading = true.obs;
 
-  ServicesController.init();
+  void loadItems(String? subpath) async {
+    if (subpath == null || subpath.isEmpty) {
+      subpath = currentSubpath.value;
+    }
 
-  ServicesController(String subpath) {
-    this.subpath.value = subpath;
-    loadItems();
-  }
-
-  void loadItems() async {
     isLoading.value = true;
     update();
 
     QueryRequest query = QueryRequest(
         spaceName: space,
-        subpath: subpath.value,
+        subpath: subpath,
         queryType: QueryType.subpath,
         exactSubpath: true);
 
-    var (response, error) = await DmartAPIS.query(query);
+    var (response, error) = await Dmart.query(query);
     if (response == null) {
       Snackbars.error("Unable to fetch record", error?.message ?? "");
     }
